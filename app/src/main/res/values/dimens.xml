@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="username_text_size">12sp</dimen>
+    <dimen name="username_text_size">14sp</dimen>
     <dimen name="username_margin_left">8dp</dimen>
     <dimen name="message_margin_left">8dp</dimen>
     <dimen name="created_time_text_size">12sp</dimen>
@@ -19,4 +19,5 @@
     <dimen name="chat_edit_text_margin_right">16dp</dimen>
     <dimen name="send_button_width">64dp</dimen>
     <dimen name="send_button_height">48dp</dimen>
+    <dimen name="message_text_size">18sp</dimen>
 </resources>
