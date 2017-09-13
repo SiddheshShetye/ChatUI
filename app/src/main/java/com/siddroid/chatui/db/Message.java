@@ -10,6 +10,9 @@ import android.os.Parcelable;
 @Entity
 public class Message implements Parcelable{
 
+    public static final int SENDER = 1,BOT = 2;
+    private static final String BOT_NAME = "SID";
+
     @PrimaryKey(autoGenerate = true)
     private int mid;
 
@@ -17,23 +20,28 @@ public class Message implements Parcelable{
     private String message;
 
     @ColumnInfo(name = "created_at")
-    private long createdAt;
+    private String createdAt;
 
-    @ColumnInfo(name = "user_type")
-    private int userType;
+    @ColumnInfo(name = "message_type")
+    private int messageType;
 
     @Ignore
-    public Message(Parcel in){
+    private String nickname;
+
+    @Ignore
+    private Message(Parcel in){
         mid = in.readInt();
         message = in.readString();
-        createdAt = in.readLong();
-        userType = in.readInt();
+        createdAt = in.readString();
+        messageType = in.readInt();
+        nickname = in.readString();
     }
 
-    public Message(String message, long createdAt, int userType) {
+    public Message(String message, String createdAt, int messageType) {
         this.message = message;
         this.createdAt = createdAt;
-        this.userType = userType;
+        this.messageType = messageType;
+        this.nickname = messageType == Message.BOT ? Message.BOT_NAME : "me";
     }
 
     @Ignore
@@ -47,12 +55,12 @@ public class Message implements Parcelable{
         return message;
     }
 
-    public long getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public int getUserType() {
-        return userType;
+    public int getMessageType() {
+        return messageType;
     }
 
     public void setMid(int mid) {
@@ -63,12 +71,8 @@ public class Message implements Parcelable{
         this.message = message;
     }
 
-    public void setCreatedAt(long createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public void setUserType(int userType) {
-        this.userType = userType;
+    public String getNickname() {
+        return nickname;
     }
 
     public static final Parcelable.Creator<Message> CREATOR = new Parcelable.Creator<Message>() {
@@ -93,7 +97,8 @@ public class Message implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(mid);
         parcel.writeString(message);
-        parcel.writeLong(createdAt);
-        parcel.writeInt(userType);
+        parcel.writeString(createdAt);
+        parcel.writeInt(messageType);
+        parcel.writeString(nickname);
     }
 }

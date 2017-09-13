@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="message" type="com.siddroid.chatui.db.Message" />
+    </data>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +12,7 @@
 
     <TextView
         android:id="@+id/text_message_body"
-        android:text="hello, hello!"
+        android:text="@{message.message}"
         android:background="@drawable/rounded_rectangle_green"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +25,7 @@
 
     <TextView
         android:id="@+id/text_message_time"
-        android:text="11:40"
+        android:text="@{message.createdAt}"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="10sp"
@@ -31,3 +34,4 @@
         app:layout_constraintRight_toLeftOf="@+id/text_message_body" />
 
 </android.support.constraint.ConstraintLayout>
+    </layout>

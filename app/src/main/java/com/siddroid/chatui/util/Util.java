@@ -1,4 +1,4 @@
-package com.siddroid.chatui;
+package com.siddroid.chatui.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -28,6 +28,4 @@ public class Util {
         String date = dateFormat.format(timeInMillis);
         return date.equals(dateFormat.format(System.currentTimeMillis()));
     }
-
-
 }
