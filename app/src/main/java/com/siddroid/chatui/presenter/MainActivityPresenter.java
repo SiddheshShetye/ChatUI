@@ -2,6 +2,7 @@ package com.siddroid.chatui.presenter;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 
 import com.siddroid.chatui.ChatApplication;
 import com.siddroid.chatui.db.Message;
@@ -66,6 +67,10 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
     @Override
     public void sendClicked(String message) {
+        if (TextUtils.isEmpty(message)){
+            view.showError();
+            return;
+        }
         sendNewMessage(message,Message.SENDER);
         sendNewMessage("I am a BOT, I don't understand : "+message,Message.BOT);
     }

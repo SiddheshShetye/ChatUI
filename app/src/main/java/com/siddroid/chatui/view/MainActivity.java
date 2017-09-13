@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.widget.Toast;
 
 import com.siddroid.chatui.R;
 import com.siddroid.chatui.databinding.ActivityMainBinding;
@@ -63,6 +64,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     public void hideListLoading() {
         binding.progressBar.setVisibility(android.view.View.INVISIBLE);
         binding.rvMessageList.setVisibility(android.view.View.VISIBLE);
+    }
+
+    @Override
+    public void showError() {
+        Toast.makeText(this, R.string.error_message,Toast.LENGTH_LONG).show();
     }
     //---------------------------------------------
 }

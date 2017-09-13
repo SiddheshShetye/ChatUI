@@ -11,6 +11,7 @@ public class MainActivityContract {
         void updateMessage(Message message);
         void showListLoading();
         void hideListLoading();
+        void showError();
     }
 
     interface Presenter {
