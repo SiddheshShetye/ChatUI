@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         messageAdapter = new MessageListAdapter(messageList);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setReverseLayout(true);
-        binding.recyclerviewMessageList.setLayoutManager(manager);
-        binding.recyclerviewMessageList.setAdapter(messageAdapter);
+        binding.rvMessageList.setLayoutManager(manager);
+        binding.rvMessageList.setAdapter(messageAdapter);
 
         presenter.loadPreviousMessages();
     }
@@ -42,27 +42,27 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     public void showPreviousMessages(List<Message> msgList) {
         messageList.addAll(msgList);
         messageAdapter.notifyDataSetChanged();
-        binding.recyclerviewMessageList.scrollToPosition(0);
+        binding.rvMessageList.scrollToPosition(0);
     }
 
     @Override
     public void updateMessage(final Message message) {
         messageList.add(0,message);
         messageAdapter.notifyDataSetChanged();
-        binding.recyclerviewMessageList.scrollToPosition(0);
-        binding.edittextChatbox.setText("");
+        binding.rvMessageList.scrollToPosition(0);
+        binding.edtChat.setText("");
     }
 
     @Override
     public void showListLoading() {
         binding.progressBar.setVisibility(android.view.View.VISIBLE);
-        binding.recyclerviewMessageList.setVisibility(android.view.View.INVISIBLE);
+        binding.rvMessageList.setVisibility(android.view.View.INVISIBLE);
     }
 
     @Override
     public void hideListLoading() {
         binding.progressBar.setVisibility(android.view.View.INVISIBLE);
-        binding.recyclerviewMessageList.setVisibility(android.view.View.VISIBLE);
+        binding.rvMessageList.setVisibility(android.view.View.VISIBLE);
     }
     //---------------------------------------------
 }

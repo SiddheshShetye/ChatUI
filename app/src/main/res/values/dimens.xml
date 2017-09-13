@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="username_text_size">12sp</dimen>
+    <dimen name="username_margin_left">8dp</dimen>
+    <dimen name="message_margin_left">8dp</dimen>
+    <dimen name="created_time_text_size">12sp</dimen>
+    <dimen name="created_time_margin_left">4dp</dimen>
+    <dimen name="message_padding">8dp</dimen>
+    <dimen name="message_margin_top">4dp</dimen>
+    <dimen name="message_margin_right">8dp</dimen>
+    <dimen name="created_time_margin_right">4dp</dimen>
+    <dimen name="message_max_width">240dp</dimen>
+    <dimen name="username_margin_top">4dp</dimen>
+    <dimen name="message_layout_padding_top">8dp</dimen>
+    <dimen name="message_list_padding_bottom">10dp</dimen>
+    <dimen name="separator_height">2dp</dimen>
+    <dimen name="chat_box_min_height">48dp</dimen>
+    <dimen name="chat_edit_text_margin_left">16dp</dimen>
+    <dimen name="chat_edit_text_margin_right">16dp</dimen>
+    <dimen name="send_button_width">64dp</dimen>
+    <dimen name="send_button_height">48dp</dimen>
+</resources>
