@@ -3,6 +3,7 @@ package com.siddroid.chatui.view;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         manager.setReverseLayout(true);
         binding.rvMessageList.setLayoutManager(manager);
         binding.rvMessageList.setAdapter(messageAdapter);
+        binding.rvMessageList.setItemAnimator(new DefaultItemAnimator());
 
         presenter.loadPreviousMessages();
     }
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     @Override
     public void updateMessage(final Message message) {
         messageList.add(0,message);
-        messageAdapter.notifyDataSetChanged();
+        messageAdapter.notifyItemInserted(0);
         binding.rvMessageList.scrollToPosition(0);
         binding.edtChat.setText("");
     }
