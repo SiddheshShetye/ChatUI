@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
-        <variable name="message" type="com.siddroid.chatui.db.Message" />
+
+        <variable
+            name="message"
+            type="com.siddroid.chatui.db.Message" />
     </data>
-<android.support.constraint.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/message_layout_padding_top">
 
-    <TextView
-        android:id="@+id/tvMessage"
-        android:text="@{message.message}"
-        android:background="@drawable/rounded_rectangle_green"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxWidth="@dimen/message_max_width"
-        android:padding="@dimen/message_padding"
-        android:textColor="@android:color/white"
-        android:layout_marginEnd="@dimen/message_margin_right"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingTop="@dimen/message_layout_padding_top">
 
-    <TextView
-        android:id="@+id/tvCreatedTime"
-        android:text="@{message.createdAt}"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/created_time_text_size"
-        android:layout_marginEnd="@dimen/created_time_margin_right"
-        app:layout_constraintBottom_toBottomOf="@+id/tvMessage"
-        app:layout_constraintRight_toLeftOf="@+id/tvMessage" />
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/message_margin_right"
+            android:background="@drawable/rounded_rectangle_green"
+            android:maxWidth="@dimen/message_max_width"
+            android:padding="@dimen/message_padding"
+            android:text="@{message.message}"
+            android:textColor="@android:color/white"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
-    </layout>
+        <TextView
+            android:id="@+id/tvCreatedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/created_time_margin_right"
+            android:text="@{message.createdAt}"
+            android:textSize="@dimen/created_time_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMessage"
+            app:layout_constraintRight_toLeftOf="@+id/tvMessage" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
