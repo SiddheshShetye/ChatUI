@@ -37,6 +37,9 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
             }
         }).start();
     }
+    
+    
+    //test
 
     private void sendNewMessage(String message, int userType) {
         final Message senderMessage = new Message(message, com.siddroid.chatui.util.Util.formatDateTime(System.currentTimeMillis()), userType);
